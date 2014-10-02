@@ -1,0 +1,71 @@
+<ui:composition template="/WEB-INF/template/Template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="titulo">Manutencao</ui:define>
+    
+    <ui:define name="corpo">
+    	<h1>New Maintenance</h1>
+    	
+    	<p:toolbar style="margin-top: 20px">
+    		<p:toolbarGroup>
+    			<p:button value="New" outcome="/manutencao/Manutencao"/>
+    			<p:commandButton value="Save" id="botaoSalvar"/>
+    		</p:toolbarGroup>
+    		<p:toolbarGroup align="right">
+    			<p:button value="Search"/>
+    		</p:toolbarGroup>
+    	</p:toolbar>
+    	
+    	 <p:panelGrid columns="4" id="painel" style="width: 100%; margin-top: 20px"
+    			columnClasses="rotulo, campo">
+    		    		
+    		<p:outputLabel value="Matricula" for="matricula"/>
+    		<p:inputText id="matricula" size="20" maxlength="20"/>
+    		
+    		 <p:outputLabel value="Tipo de Manutencao" for="tipomanutencao"/>
+    		 <p:selectOneMenu id="tipomanutencao">
+    			<f:selectItem itemLabel="Selecione o Tipo de manutencao"/>
+    			<f:selectItem itemLabel="Small Service" itemValue="Small Service"/>
+    			<f:selectItem itemLabel="Regular Service" itemValue="Regular Service"/>
+    			<f:selectItem itemLabel="Major Service" itemValue="Major Service"/>
+    			<f:selectItem itemLabel="Other Service" itemValue="Other Service"/>
+    		</p:selectOneMenu>
+    		
+    		<p:outputLabel value="Estacao de Servico" for="servicestation"/>
+    		<p:inputText id="servicestation" size="20" maxlength="20"/>
+    		
+    		<p:outputLabel value="Nome da Peca" for="nomepeca"/>
+    		<p:inputText id="nomepeca" size="20" maxlength="20"/>
+    		
+    		<p:outputLabel value="Part Number" for="pnumber"/>
+    		<p:inputText id="pnumber" size="20" maxlength="20"/>
+    		
+    		<p:outputLabel value="KM Entrada" for="kmentrada"/>
+    		<p:inputText id="kmentrada" size="20" maxlength="20"/>
+    		<p:outputLabel value="KM Saida" for="kmsaida"/>
+    		<p:inputText id="kmsaida" size="20" maxlength="20"/>
+    		
+    		<p:outputLabel value="Data" for="data"/>
+    		<p:calendar id="data" pattern="dd-MM-yyyy" mask="true" />
+    		
+    		<p:outputLabel value="Preco  Unitario" for="precounitario"/>
+    		<p:inputText id="precounitario" size="20" maxlength="20">
+    		 <f:convertNumber type="currency"/>
+    		</p:inputText>   		
+    			    		    		
+    		<p:outputLabel value="Fabricante" for="fabricante"/>
+    		<p:inputText id="fabricante" size="20" maxlength="20"/>
+    		
+    		<p:outputLabel value="Vendedor" for="vendedor"/>
+    		<p:inputText id="vendedor" size="20" maxlength="20"/>
+    		    		    	   
+    	   <h3>Notas</h3>
+           <p:inputTextarea rows="4" cols="33" /> 
+    		
+          </p:panelGrid> 
+    </ui:define>
+</ui:composition>

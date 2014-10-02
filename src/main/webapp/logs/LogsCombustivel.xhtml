@@ -1,0 +1,71 @@
+<ui:composition template="/WEB-INF/template/Template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="titulo">Logs de Combustivel</ui:define>
+    
+    <ui:define name="corpo">
+    	<h1>New Log</h1>
+    	
+    	<p:toolbar style="margin-top: 20px">
+    		<p:toolbarGroup>
+    			<p:button value="New" outcome="/logs/LogsCombustivel"/>
+    			<p:commandButton value="Save" id="botaoSalvar"/>
+    		</p:toolbarGroup>
+    		<p:toolbarGroup align="right">
+    			<p:button value="Search"/>
+    		</p:toolbarGroup>
+    	</p:toolbar>
+    	
+    	<p:panelGrid columns="4" id="painel" style="width: 100%; margin-top: 20px"
+    			columnClasses="rotulo, campo">
+    		<p:outputLabel value="ID" for="id"/>
+    		<p:inputText id="id" size="20" maxlength="20"/>
+    		
+    		<p:outputLabel value="Matricula" for="matricula"/>
+    		<p:inputText id="matricula" size="20" maxlength="20"/>
+    		
+    		<p:outputLabel value="Data" for="data"/>
+    		<p:calendar id="data" pattern="dd-MM-yyyy" mask="true" />
+    			
+    		    		
+    		<p:outputLabel value="Hora de Partida" for="horapartida"/>
+    		<p:inputMask id="horapartida"  size="10" maxlength="10" mask="99:99h" />
+    		
+    		<p:outputLabel value="Hora de Chegada" for="horachegada"/>
+    		<p:inputMask id="horachegada" size="10" maxlength="10" mask="99:99h"/>
+    		    		    		
+    		<p:outputLabel value="Preco de Combustivel" for="precocombustivel"/>
+    		<p:inputText id="precocombustivel" size="20" maxlength="20">
+    		 <f:convertNumber type="currency"/>
+    		</p:inputText>
+    		<p:outputLabel value="KM na partida" for="kmpartida"/>
+    		<p:inputText id="kmpartida" size="10" maxlength="10"/>
+    		
+    		<p:outputLabel value="KM na chegada" for="kmchegada"/>
+    		<p:inputText id="kmchegada" size="10" maxlength="10"/>
+    		
+    		<p:outputLabel value="Percurso" for="percurso"/>
+    		<p:inputText id="percurso" size="30" maxlength="30"/>
+    	
+    	    <p:outputLabel value="Tipo de combustivel" for="tipocombustivel"/>
+    		<p:selectOneMenu id="tipocombustivel">
+    			<f:selectItem itemLabel="Selecione o combustivel"/>
+    			<f:selectItem itemLabel="Diesel" itemValue="Diesel"/>
+    			<f:selectItem itemLabel="Petrol" itemValue="Petrol"/>
+    		</p:selectOneMenu>
+    	   
+    	   <p:outputLabel value="Quantidade abastecida" for="qtdabastecida"/>
+    		<p:inputText id="qtdabastecida" size="20" maxlength="20"/>
+    		    		    		
+    		<p:outputLabel value="Valor Abastecido" for="valorabastecido"/>
+    		<p:inputText id="valorabastecido" size="10" maxlength="10">
+    		 <f:convertNumber type="currency"/>
+    		</p:inputText>
+    		
+          </p:panelGrid> 
+    </ui:define>
+</ui:composition>
